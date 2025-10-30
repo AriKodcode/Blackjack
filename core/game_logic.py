@@ -76,4 +76,20 @@ def run_full_game(deck: list[dict], player: dict, dealer: dict) -> None:
                 game = False
                 status_game = "player won"
                 break
+            else:
+                if calculate_hand_value(dealer["hand"]) > calculate_hand_value(player["hand"]):
+                    status_game = "dealer won"
+                    dealer_turn = False
+                    game = False
+                    break
+                if calculate_hand_value(dealer["hand"]) < calculate_hand_value(player["hand"]):
+                    status_game = "player won"
+                    dealer_turn = False
+                    game = False
+                    break
+                if calculate_hand_value(dealer["hand"]) == calculate_hand_value(player["hand"]):
+                    status_game = "draw"
+                    dealer_turn = False
+                    game = False
+                    break
     print(f"{status_game} \n player: {player} player hand {calculate_hand_value(player["hand"])} \n dealer: {dealer} dealer hand: {calculate_hand_value(dealer["hand"])}")

@@ -13,6 +13,25 @@ def build_standard_deck() -> list[dict]:
 
 
 def shuffle_by_suit(deck: list[dict], swaps: int = 5000) -> list[dict]:
-
+    counter = 0
+    while counter <= swaps:
+        index_i = randrange(len(deck))
+        index_j = randrange(len(deck))
+        if index_i != index_j:
+            if deck[index_i]["suite"] == "H" and index_j % 5 == 0:
+                deck[index_i], deck[index_j] = deck[index_j], deck[index_i]
+                counter += 1
+                continue
+            if deck[index_i]["suite"] == "C" and index_j % 3 == 0:
+                deck[index_i], deck[index_j] = deck[index_j], deck[index_i]
+                counter += 1
+                continue
+            if deck[index_i]["suite"] == "D" and index_j % 2 == 0:
+                deck[index_i], deck[index_j] = deck[index_j], deck[index_i]
+                counter += 1
+                continue
+            if deck[index_i]["suite"] == "S" and index_j % 7 == 0:
+                deck[index_i], deck[index_j] = deck[index_j], deck[index_i]
+                counter += 1
     return deck
 

@@ -36,6 +36,7 @@ def dealer_play(deck: list[dict], dealer: dict) -> bool:
             break
         elif 17 <= calculate_hand_value(dealer["hand"]) <= 21:
             dealer = 'win'
+            break
     if dealer == "los":
         return False
     else:

@@ -14,4 +14,3 @@ def ask_player_action() -> str:
     return user_input
 
 
-print(ask_player_action())

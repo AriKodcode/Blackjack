@@ -27,7 +27,18 @@ def deal_two_each(deck: list[dict], player: dict, dealer: dict) -> None:
 
 
 def dealer_play(deck: list[dict], dealer: dict) -> bool:
-    return True
+    while True:
+        print("dealer card is" ,deck[-1])
+        dealer["hand"].append(deck.pop())
+        if calculate_hand_value(dealer["hand"]) > 21:
+            dealer = "los"
+            break
+        elif 17 <=calculate_hand_value(dealer["hand"]) <= 21:
+            dealer = 'win'
+    if dealer == "los":
+        return False
+    else:
+        return True
 
 
 def run_full_game(deck: list[dict], player: dict, dealer: dict) -> None:
